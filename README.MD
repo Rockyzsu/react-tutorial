@@ -1,1 +1,3 @@
-# Content based on the book <<Javascript Fullstack>>
+# Content based on the book <Javascript Fullstack>
+
+# Learning Reac Sercond Edition
