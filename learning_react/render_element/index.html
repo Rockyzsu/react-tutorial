@@ -4,23 +4,53 @@
     <meta charset="utf-8" />
     <title>Pure React Samples</title>
   </head>
+
   <body>
     <!-- Target Container -->
     <div id="root">ROOT ITEM</div>
 
     <!-- React Library & React DOM-->
-    <script
-      src="./react.development.js"
-    ></script>
-    <script
-      src="./react-dom.development.js"
-    ></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
 
     <script>
       // JavaScript Code with Pure React
-      const dish = React.createElement('h1',{id:'recipe-1'},'baked salmon');
+      const promise = fetch("https://api.randomuser.me/?nat=US&results=1"); // 允许跨域
+      // const promise = fetch("https://guiyan-salesapi.demo4mlm.com/api/ecommerce/products"); // 不允许跨域
+      console.log(promise); //pending
+      promise
+        .then((resp) => {
+          console.log(resp.text);
+          return resp.json();
+        })
+        .then((js) => js?.results?.[0])
+        .then((data) => console.log(data));
+
+      const initData = [
+        "2 1b salmon feel",
+        "3 1b salmon jisilu",
+        "4 1b salmon akamai",
+        "5 1b salmon login",
+        "6 1b salmon 618 jindong",
+        "7 1b salmon maotai",
+        "8 1b salmon hacker",
+      ];
+      const dish = React.createElement(
+        "h3",
+        { id: "recipe-1" }, // attr
+        // React.createElement('li',null,'2 1b salmon'),
+        initData.map((msg, i) => React.createElement("li", { key: i }, msg))
+      );
       console.log(dish);
-      ReactDOM.render(dish,document.getElementById('root'))
+
+      const root = React.createElement(
+        "section",
+        null,
+        React.createElement("h1", null, "How to Login jisilu"),
+        dish,
+        React.createElement("h1", null, "All is done")
+      );
+      ReactDOM.render(root, document.getElementById("root"));
     </script>
   </body>
 </html>
