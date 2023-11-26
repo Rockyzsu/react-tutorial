@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pure React Samples</title>
+  </head>
+
+  <body>
+    <!-- Target Container -->
+    <div id="root">Cors validation</div>
+
+
+    <script>
+      // JavaScript Code with Pure React
+      // const promise = fetch("https://api.randomuser.me/?nat=US&results=1"); // 允许跨域
+      const promise = fetch("https://guiyan-salesapi.demo4mlm.com/api/ecommerce/products"); // 不允许跨域
+      console.log(promise); //pending
+      promise
+        .then((resp) => {
+          console.log(resp.text);
+          return resp.json();
+        })
+        .then((js) => js?.results?.[0])
+        .then((data) => console.log(data));
+
+    </script>
+  </body>
+</html>
