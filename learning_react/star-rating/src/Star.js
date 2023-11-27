@@ -15,7 +15,7 @@ const [initSelect,setSelect] = useState(0);
       <Star
       key={i}
       selected={ initSelect >i }
-      onSeclect={()=>{setSelect(i+1);console.log('click')}}
+      onSelect={()=>{setSelect(i+1);console.log('click')}}
       />))
     }
 
