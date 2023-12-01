@@ -10,9 +10,11 @@ export default function GitHubUser({login}){
 
   useEffect(()=>{
 
+    console.log(`data --- ${data}`)
     if(!data)return;
     if(data.login==login)return;
-console.log('data 变化')
+    console.log('data 变化');
+    console.log(`data is ${data}` )
     const {name,avatar_url,location} =data
     saveJson(`user:${login}`,{
       name,login,avatar_url,location
@@ -22,14 +24,14 @@ console.log('data 变化')
 
 
   useEffect(()=>{
-
+    console.log(`login --- ${login}`)
     if(!login) return;
-  
+
     if(data&&data.login==login) return
-    console.log('login 变化');
+    console.log(`login 变化 : ${login}` );
 
     fetch(`https://api.github.com/users/${login}`)
-    .then(res=>res.json())
+    .then(res=>{console.log('fetch data');return res.json()})
     .then(setData)
     .catch(console.error)
 
