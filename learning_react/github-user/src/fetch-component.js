@@ -1,6 +1,6 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
-export default function GitHubUser({login}) {
+export default function GitHubUser({ login }) {
   return (
     <Fetch
       uri={`https://api.github.com/users/${login}`}
@@ -23,13 +23,12 @@ function UserDetails({ data }) {
   );
 }
 
-function Fetch(
-  {uri,
+function Fetch({
+  uri,
   renderSucess,
   loadingFallback = <p>loading....</p>,
-  renderError = (error) => <pre>{JSON.stringify(error)}</pre>
-}
-) {
+  renderError = (error) => <pre>{JSON.stringify(error)}</pre>,
+}) {
   const { loading, data, err } = useFetch(uri);
   if (loading) return loadingFallback;
   if (err) return renderError(err);
@@ -44,15 +43,15 @@ function useFetch(uri) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log(`enter into efffect ${uri} ==== `);
     if (!uri) return;
 
-    console.log("enter into efffect");
     fetch(uri)
       .then((res) => res.json())
       .then(setData)
       .then(() => setLoading(false))
       .catch((err) => setError(err));
-  }, [uri]);
+  }, []);
 
   return { loading, data, error };
 }
