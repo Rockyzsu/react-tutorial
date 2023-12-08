@@ -51,7 +51,23 @@ function useFetch(uri) {
       .then(setData)
       .then(() => setLoading(false))
       .catch((err) => setError(err));
-  }, []);
+  }, [uri]);
 
   return { loading, data, error };
 }
+
+const useIterator = (items = [], initialIndex = 0) => {
+  const [i, setIndex] = useState(initialIndex);
+
+  const prev = () => {
+    if (i == 0) return setIndex(items.length - 1);
+    setIndex(i);
+  };
+
+  const next = () => {
+    if (i == items.length) return setIndex(0);
+    setIndex(i + 1);
+  };
+
+  return [items[i], prev, next];
+};
