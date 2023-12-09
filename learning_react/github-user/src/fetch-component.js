@@ -76,7 +76,7 @@ const request = new Request(uri, {
 
     fetch(uri)
       .then((res) => {return res.json()})
-      .then(setData)
+      .then((data)=>{setData(data)})
       .then(() => setLoading(false))
       .catch((err) => {console.log(err);setError(err)});
   }, [uri]);
@@ -118,11 +118,13 @@ function RepoMenu({ repoList, onSelect = (f) => f }) {
 }
 
 
-function UserRepositories(
+function UserRepositories({
   login,
   selectRepo,
   onSelect = f=>f
+}
 ){
+  // console.log('login ---- '+login);
   return (
     <Fetch 
     uri={`https://api.github.com/users/${login}/repos`}
