@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ReactMarkdown from 'react-markdown';
+// import ReactMarkdown from 'react-markdown';
 
 export default function GitHubUser({ login }) {
   return (
@@ -125,7 +125,7 @@ function RepoMenu({ repoList, onSelect = (f) => f }) {
 }
 
 function UserRepositories({ login, selectRepo, onSelect = (f) => f }) {
-  // console.log('login ---- '+login);
+  console.log('login ---- '+login);
   return (
     <Fetch
       uri={`https://api.github.com/users/${login}/repos`}
