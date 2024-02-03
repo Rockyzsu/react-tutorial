@@ -1,7 +1,10 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App20 from './App';
+// import App from './App';
+import App from './App-Reducer'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App20 />
+    <App />
 );
 
