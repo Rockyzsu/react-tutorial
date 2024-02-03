@@ -54,7 +54,7 @@ function App() {
             return false;
           }
         });
-        console.log('query result',queryResult);
+        console.log("query result", queryResult);
         resolve({
           // 直接返回数据
           list: queryResult,
@@ -89,17 +89,16 @@ function App() {
       });
   };
 
-
   const reSet = () => {
     console.log("reset");
     const resData = MockData.orderList;
     // setTableList(resData);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     onQuery();
-    console.log('init')
-  },[])
+    console.log("init");
+  }, []);
   return (
     <div className="App">
       <p>
