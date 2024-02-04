@@ -1,21 +1,27 @@
 // 不渲染组件
 
-import { useEffect, useState, memo } from "react";
+import { useEffect, useState, useMemo } from "react";
 
-const UserInfo = memo(({ user }) => {
+const UserInfo = ({ user }) => {
   console.log("render userinfo");
   console.log(user);
+
+  const filterSex = useMemo(() => {
+    console.log('call');
+    return user.sex == 1 ? "男" : "女";
+  }, [user.sex]);
+
   return (
     <div className="app-warp">
       <div>基本信息:</div>
       <div>{user.username}</div>
       <div>{user.age}</div>
       <div>{user.salary}</div>
-      <img src={user.avatar} alt="img"/>
+      <div>{filterSex}</div>
+      <img src={user.avatar} alt="img" />
     </div>
   );
-});
-
+};
 
 function App() {
   const [user, setUser] = useState({});
@@ -29,9 +35,11 @@ function App() {
   useEffect(() => {
     const user = {
       username: "Austin",
+      sex: 1,
       age: 18,
       salary: 10000,
-      avatar:'https://b.bdstatic.com/searchbox/icms/searchbox/img/cheng_girl.png'
+      avatar:
+        "https://b.bdstatic.com/searchbox/icms/searchbox/img/cheng_girl.png",
     };
     setUser(user);
   }, []);
