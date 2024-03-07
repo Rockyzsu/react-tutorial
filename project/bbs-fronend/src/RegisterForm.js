@@ -1,6 +1,8 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 
+const register = async (body) => {};
+
 const handleRegister = (e) => {
   e.preventDefault();
   console.log("register");
@@ -10,12 +12,10 @@ const handleRegister = (e) => {
   const password = form.password.value;
   const passwordconfirm = form.passwordconfirm.value;
   console.log(username, password, passwordconfirm);
-  if(password !== passwordconfirm) {
+  if (password !== passwordconfirm) {
     alert("两次输入的密码不一致");
     return;
   }
-  
-
 };
 
 const RegisterForm = () => {
