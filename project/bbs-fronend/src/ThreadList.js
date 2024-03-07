@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table } from 'react-bootstrap';
+import { Table } from "react-bootstrap";
 
 function Thread({ title, content, author }) {
   return (
@@ -13,8 +13,6 @@ function Thread({ title, content, author }) {
   );
 }
 
-
-
 export default function ThreadList() {
   // const threadContent = [
   //     {'title': '标题1', 'author': '作者1'},
@@ -24,26 +22,23 @@ export default function ThreadList() {
   //     {'title': '标题5', 'author': '作者5'},
   // ]
 
-  const [threadContent,setThreadContent] = useState([]); // ['title': '标题1', 'author': '作者1'
-  useEffect(()=>{
-    async function fetchThreadContent(){
-      const resp = await fetch(
-        'http://localhost:7000/api/threads'
-      )
+  const [threadContent, setThreadContent] = useState([]); // ['title': '标题1', 'author': '作者1'
+  useEffect(() => {
+    async function fetchThreadContent() {
+      const resp = await fetch("http://localhost:7000/api/threads");
       console.log(resp.ok);
-      console.log(resp.message  );
+      console.log(resp.message);
       const resp_data = await resp.json();
       console.log(resp_data.data);
       setThreadContent(resp_data.data);
-
     }
     fetchThreadContent();
-  },[])
+  }, []);
   // const threadContent = getThreadContent();
 
   return (
     <Table striped hover bordered>
-        <thead>
+      <thead>
         <tr>
           <th>标题</th>
           <th>内容</th>
@@ -52,8 +47,15 @@ export default function ThreadList() {
       </thead>
 
       <tbody>
-        {threadContent.map((item,index) => {
-          return <Thread key={index} title={item.title} content={item.content} author={item.author.username}/>;
+        {threadContent.map((item, index) => {
+          return (
+            <Thread
+              key={index}
+              title={item.title}
+              content={item.content}
+              author={item.author.username}
+            />
+          );
         })}
       </tbody>
     </Table>
