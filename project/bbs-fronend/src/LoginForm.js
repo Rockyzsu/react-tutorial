@@ -18,7 +18,7 @@ const login = async (body) => {
     if(res.ok){
       const data = {username:result.data.username,  token:result.data.token};
       console.log(JSON.stringify(data));
-      const saveResult = await localStorage.setItem('token', JSON.stringify(data));
+      const saveResult = await localStorage.setItem('token', JSON.stringify(result.data));
       console.log(saveResult);
       alert(result.message);
 

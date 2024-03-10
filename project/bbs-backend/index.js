@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 var cors = require("cors");
 const users = require("./api/users");
+const threads = require('./api/threads');
 
 mongoose.connect(
   process.env.DB, // db 连接
@@ -23,6 +24,7 @@ mongoose.connect(
       })
     );
     users.apis(app);
+    threads.apis(app);
 
     app.listen(7000);
   }
