@@ -1,7 +1,29 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 
-const register = async (body) => {};
+const register = async (body) => {
+  // 注册
+  try {
+    const res = await fetch("http://localhost:7000/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+
+    const result = await res.json();
+    if(result.status){
+      alert(result.message);
+    }else{
+      alert(result.message);
+    }
+  } catch (error) {
+    console.log(error);
+    alert("注册失败");
+  }
+};
 
 const handleRegister = (e) => {
   e.preventDefault();
@@ -10,12 +32,15 @@ const handleRegister = (e) => {
   const form = document.forms.registerForm; // document.getElementById("registerForm");
   const username = form.username.value;
   const password = form.password.value;
-  const passwordconfirm = form.passwordconfirm.value;
-  console.log(username, password, passwordconfirm);
-  if (password !== passwordconfirm) {
+  const confirmpass = form.passwordconfirm.value;
+  console.log(username, password, confirmpass);
+  if (password !== confirmpass) {
     alert("两次输入的密码不一致");
     return;
   }
+
+  const body = { username, password, confirmpass};
+  register(body);
 };
 
 const RegisterForm = () => {
