@@ -9,6 +9,7 @@ const Header = () => {
       try {
         const data = await localStorage.getItem('token');
         const url = `${process.env.REACT_APP_BACKEND_HOST}/api/users/auth`;
+        console.log('url:', url);
         const res = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
