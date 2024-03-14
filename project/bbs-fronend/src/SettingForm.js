@@ -8,7 +8,7 @@ const SettingForm = () => {
     try {
         const store = await localStorage.getItem('token');
         const {username,token} = JSON.parse(store);
-        const res = await fetch(`http://127.0.0.1:7000/api/users/${username}`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/users/${username}`, {
             method: "GET",
         })
         console.log(res);
@@ -41,7 +41,7 @@ const SettingForm = () => {
         console.log(file);
         await data.append('avatar',document.querySelector('#uploader').files[0]);
         console.log(data);
-        const res = await fetch(`http://127.0.0.1:7000/api/users`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/users`, {
             method: "PATCH",
             body: data,
         })

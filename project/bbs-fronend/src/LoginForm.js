@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap";
 const login = async (body) => {
   // 注册
   try {
-    const res = await fetch("http://localhost:7000/api/users/login", {
+    const res = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

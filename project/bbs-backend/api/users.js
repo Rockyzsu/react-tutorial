@@ -13,6 +13,8 @@ const apis = (app) => {
   app.get('/api/users', async (req, res) => {
     try {
       const users = await User.find();
+      console.log('data')
+      console.log(users);
       return res.json({
         data: users,
       });
@@ -252,6 +254,7 @@ const apis = (app) => {
 
   app.get('/api/users/:username', async (req, res) => {
     console.log(req.path);
+    console.log(' =============== ')
     try {
       const {
         username,

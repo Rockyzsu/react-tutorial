@@ -34,7 +34,7 @@ const PostButton = () => {
   const postContentFunc = async(body) => {
     try{
 
-      const res = await fetch(`http://127.0.0.1:7000/api/threads`,{
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_HOST}/api/threads`,{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
