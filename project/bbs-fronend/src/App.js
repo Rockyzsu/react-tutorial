@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import ReplyPostForm from "./ReplyPostForm";
 import Header from "./Header";
 import UserInfo from "./UserInfo";
-
+import Instruction from "./Instruction";
 function App() {
   const tid = '65ed80e383309b75d73ca06e' // just for debug
   return (
@@ -22,6 +22,7 @@ function App() {
       <ModifyPostButton tid={tid}/>
       <ReplyPostForm tid={tid}/>
       <UserInfo username='root'/>
+      <Instruction/>
       {/* <ThreadList /> */}
       <Footer />
     </>
