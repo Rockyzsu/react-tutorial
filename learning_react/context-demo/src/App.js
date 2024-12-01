@@ -54,7 +54,7 @@ function C() {
   const appContext = useContext(AppContext);
   const onRemove = () => {
     console.log("remove button");
-    if (appContext.roles != "amin") {
+    if (appContext.roles != "admin") {
       alert("no permission to remove");
     }
   };
@@ -77,7 +77,7 @@ function D(){
   const appContext = useContext(AppContext);
   const setPermission = () => {
     console.log("set permission button");
-    appContext.setFunc('admin')
+    appContext.setFunc()
     alert('set success!')
     console.log('now value is ',appContext.roles)
   };
@@ -97,7 +97,9 @@ function D(){
 function App() {
   const [userRole, setRole] = useState("user");
   return (
-    <AppContext.Provider value={{ roles: userRole,setFunc:setRole }}>
+    <AppContext.Provider value={{ roles: userRole,setFunc:()=>{
+      setRole('admin')
+    } }}>
       <A />
     </AppContext.Provider>
   );
