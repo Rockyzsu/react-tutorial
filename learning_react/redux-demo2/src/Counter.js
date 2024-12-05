@@ -1,8 +1,4 @@
 
-import React from "react";
-import ReactDOM from "react-dom/client";
-// import Counter from './Counter'
-
 import { createStore } from "redux";
 const initState = { count: 0 };
 
@@ -50,13 +46,4 @@ function Counter() {
 
 
 
-
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Counter />);
-
-// store.subscribe(() => {
-//   console.log(store.getState());
-//   root.render(<Counter />);
-// });
+export default Counter

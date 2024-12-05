@@ -32,7 +32,7 @@ function App1() {
     <div>
       <h1>Hello</h1>
       <button onClick={add}>+</button>
-      {/* <span>{count}</span> */}
+      {/* <span>{store.getState().count}</span> */}
       <button onClick={minusfunc}>-</button>
     </div>
   );

@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App1 from './App';
-// import App1 from './App-demo1'
+// import './index.css';
+import App from './App';
+// import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App1 />
+
+    <App />
+
 );
+
 
