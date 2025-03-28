@@ -4,10 +4,12 @@ function App() {
   console.log("App");
 
   const [state_value, setState] = useState(start);
+  console.log("current state_value is ", state_value);
+
   const change_text = () => {
     setState((v) => v + 1);
-    start += 1;
-    console.log(state_value);
+    // start += 1;
+    // console.log(state_value);
   };
 
   // useEffect(()=>{

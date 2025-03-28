@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 function Contact() {
   return (
     <div>
@@ -8,6 +9,7 @@ function Contact() {
         <li>Email: info@example.com</li>
         <li>Phone: 123 - 456 - 7890</li>
       </ul>
+      <Link to="/">Go Back Home Page</Link>
     </div>
   );
 }
